@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() 
+{
+    struct students 
+    {
+        int id;
+        char name[]; 
+    };
+
+    struct students s[2];
+    int i;
+    
+    
+for (i = 0; i < 2; i++) 
+    {
+        printf("Enter ID :");
+        scanf("%d", &s[i].id);
+        printf("Enter name:");
+        scanf("%s", s[i].name);
+    };
+    
+     printf("STUDENT DETAILS\n");
+     for (i = 0; i < 2; i++) 
+    {
+        printf("ID: %d\n", s[i].id);
+        printf("Name: %s\n", s[i].name);
+    }
+
+    return 0;
+}
