@@ -1,43 +1,49 @@
 #include <stdio.h>
 
-int main()
+int main() 
 {
     FILE *fp;
-    char name[300];
+    char buffer[300];
 
-    // Writing data into the file
-    fp = fopen("student.txt", "w");
-
-    if (fp == NULL)
+    // 1. Writing data into file
+    fp = fopen("feedback.txt", "w");
+    if (fp == NULL) 
     {
-        printf("File cannot be opened for writing");
+        printf("File cannot be opened");
         return 1;
     }
 
-    fprintf(fp, "Welcome to C Programming\n");
-    fprintf(fp, "File Handling in C");
-
+    fprintf(fp, "C programming classes are quite intresting but some concepts are not clear and i need little bit more understanding regarding those particular topics and there are certain concepts or topics where more time has to be spent on but conceptually i can understand each and every topic.");
     fclose(fp);
-
-    printf("Data written successfully\n\n");
-
-    // Reading data from the file
-    fp = fopen("student.txt", "r");
-
-    if (fp == NULL)
+    printf("Data written successfully\n");
+    
+    // 2. Appending data into file
+    fp = fopen("feedback.txt", "a");
+    if (fp == NULL) 
     {
-        printf("File cannot be opened for reading");
+        printf("File cannot be opened");
+        return 1;
+    }
+
+    fprintf(fp, "when it comes to conceptual understanding everything is fine but when it comes to practial skills or lab sessions thats where thing start getting difficult and when it comes to solving leetcode problems and uploading projects on github, it becomes difficult for me");
+    fclose(fp);
+    printf("Data appended successfully\n");
+
+    // 3. Reading data from file
+    char name[100];
+    fp = fopen("feedback.txt", "r");
+    if (fp == NULL) 
+    {
+        printf("File cannot be opened");
         return 1;
     }
 
     printf("File Contents:\n");
-
-    while (fgets(name, sizeof(name), fp) != NULL)
+    while (fgets(name, sizeof(name), fp) != NULL) 
     {
         printf("%s", name);
     }
-
     fclose(fp);
-
     return 0;
 }
+
