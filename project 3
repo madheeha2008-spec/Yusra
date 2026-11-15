@@ -1,4 +1,4 @@
-include <stdio.h>      // Header file for printf()
+#include <stdio.h>      // Header file for printf()
 #include <stdlib.h>     // Header file for atoi()
 #include <string.h>     // Header file for strcpy()
 
